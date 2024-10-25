@@ -1,33 +1,81 @@
+"use client";
+import { useState } from "react";
 import AddItem from "./components/AddItem";
 import Navbar from "./components/Navbar";
 import TodoList from "./components/TodoList";
-import todos from "./data/todolist";
+import initialTodos from "./data/todolist";
+import SectionTitle from "./components/SectionTitle";
 
 export default function Home() {
 
+	const [todos, setTodos] = useState(initialTodos);
+
+	const handleCheck = (id) => {
+		const updatedTodos = todos.map(todo => 
+			todo.id === id ? { ...todo, isCompleted: !todo.isCompleted } : todo
+		);
+		setTodos(updatedTodos);
+	}
+
+	const handleDelete = (id) => {
+		const updatedTodos = todos.filter(todo => todo.id !== id);
+		setTodos(updatedTodos);
+	}
+
+	const handleEdit = (id, value) => {
+		const updatedTodos = todos.map(todo => 
+			todo.id === id ? {...todo, name: value} : todo
+		);
+		setTodos(updatedTodos);
+	}
+
+	const handleAdd = (value) => {
+		const newTodo = {
+			id: todos.length ? todos[todos.length - 1].id + 1 : 1,
+			name: value,
+			isCompleted: false
+		}
+		setTodos([...todos, newTodo]);
+	}
+
+	const activeTodos = todos.filter(todo => !todo.isCompleted);
+	const completedTodos = todos.filter(todo => todo.isCompleted);
+
   return (
 	<div className="max-w-screen-sm md:max-w-screen-md mx-auto mt-20 p-5">
-      	<AddItem />
+      	<AddItem onAdd={handleAdd} />
 		<div className="mb-10">
-			<div className="flex items-center ms-2 my-3">
-				<p className="text-md text-[#6C5FE5] font-bold">TODO</p>
-				<hr className="flex-grow ml-2 border-t border-gray-300"/>
-			</div>
-			{ todos.map(todo => (
-				!todo.isCompleted && (
-				<TodoList todo={todo}/>))
+			<SectionTitle title="TODO" isPrimary={true}/>
+
+			{activeTodos.length ? (
+				activeTodos.map(todo => (
+					<TodoList
+						key={todo.id}
+						todo={todo}
+						onCheck={handleCheck}
+						onDelete={handleDelete}
+						onEdit={handleEdit}
+					/>
+				))
+			) : (
+				<p>No active todos!</p>
 			)}
 		</div>
 
 		<div className="mb-5">
-			<div className="flex items-center ms-2 my-3">
-				<p className="text-md text-gray-400 font-bold">COMPLETED</p>
-				<hr className="flex-grow ml-2 border-t border-gray-300"/>
-			</div>
+			<SectionTitle title="COMPLETED"/>
 
-			{ todos.map(todo => (
-				todo.isCompleted && (
-					<TodoList todo={todo}/> ))
+			{completedTodos.length ? (
+				completedTodos.map(todo => (
+					<TodoList
+						key={todo.id}
+						todo={todo}
+						onCheck={() => handleCheck(todo.id)}
+						onDelete={() => handleDelete(todo.id)}
+					/>
+				))
+			) : (
+				<p>No completed todos!</p>
 			)}
 		</div>
 	</div>
