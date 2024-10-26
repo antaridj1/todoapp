@@ -44,7 +44,7 @@ export default function Home() {
   return (
 	<div className="max-w-screen-sm md:max-w-screen-md mx-auto mt-20 p-5">
       	<AddItem onAdd={handleAdd} />
-		<div className="mb-10">
+		<div className="mb-10 mt-10">
 			<SectionTitle title="TODO" isPrimary={true}/>
 
 			{activeTodos.length ? (
@@ -58,26 +58,24 @@ export default function Home() {
 					/>
 				))
 			) : (
-				<p>No active todos!</p>
+				<p className="text-lg text-gray-400 text-center">No active todos!</p>
 			)}
 		</div>
 
-		<div className="mb-5">
-			<SectionTitle title="COMPLETED"/>
 
-			{completedTodos.length ? (
-				completedTodos.map(todo => (
+		{completedTodos.length !== 0 && (
+			<div className="mb-5">
+				<SectionTitle title="COMPLETED"/>
+				{completedTodos.map(todo => (
 					<TodoList
 						key={todo.id}
 						todo={todo}
 						onCheck={() => handleCheck(todo.id)}
 						onDelete={() => handleDelete(todo.id)}
 					/>
-				))
-			) : (
-				<p>No completed todos!</p>
-			)}
-		</div>
+				))}
+			</div>
+		)}
 	</div>
   );
 }
