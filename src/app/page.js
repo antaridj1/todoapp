@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import AddItem from "./components/AddItem";
-import Navbar from "./components/Navbar";
 import TodoList from "./components/TodoList";
 import initialTodos from "./data/todolist";
 import SectionTitle from "./components/SectionTitle";
@@ -11,7 +10,7 @@ export default function Home() {
 	const [todos, setTodos] = useState(initialTodos);
 
 	const handleCheck = (id) => {
-		const updatedTodos = todos.map(todo => 
+	const updatedTodos = todos.map(todo => 
 			todo.id === id ? { ...todo, isCompleted: !todo.isCompleted } : todo
 		);
 		setTodos(updatedTodos);
