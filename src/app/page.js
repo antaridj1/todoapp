@@ -57,7 +57,7 @@ export default function Home() {
 					/>
 				))
 			) : (
-				<p className="text-lg text-gray-400 text-center">No active todos!</p>
+				<p className="text-md text-gray-400 text-center">No active todos!</p>
 			)}
 		</div>
 
