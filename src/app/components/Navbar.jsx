@@ -18,7 +18,7 @@ export default function Navbar() {
     return (
         <div className="fixed w-full p-3 top-0 z-50 start-0 animate-fade animate-once">
             <BoxRounded>
-				<div className="flex flex-wrap items-center justify-between py-6 px-2">
+				<div className="flex flex-wrap items-center justify-between py-4 px-2">
                     <Link href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
                         <span className="nav-title self-center text-xl font-bold whitespace-nowrap dark:text-white">
                             <span className="text-black dark:text-white">Todo</span>
