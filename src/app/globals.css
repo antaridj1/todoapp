@@ -33,8 +33,7 @@
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
+  background: #fafafa;
   font-family: 'Inter', sans-serif;
 }
 
