@@ -38,6 +38,11 @@ body {
   font-family: 'Inter', sans-serif;
 }
 
+.dark body {
+  background-color: #1C1745; /* Dark mode color */
+  color: #ffffff; /* Dark mode text color */
+}
+
 .nav-title {
   font-family: 'Montserrat-Bold', sans-serif;
   font-weight: bold;

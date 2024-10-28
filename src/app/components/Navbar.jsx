@@ -20,8 +20,8 @@ export default function Navbar() {
 				<div className="flex flex-wrap items-center justify-between py-6 px-2">
                     <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
                         <span className="nav-title self-center text-xl font-bold whitespace-nowrap dark:text-white">
-                            <span className="text-black">Todo</span>
-                            <span className="text-[#6C5FE5]">day</span>
+                            <span className="text-black dark:text-white">Todo</span>
+                            <span className="text-[#6C5FE5] dark:text-[#B9B1FF]">day</span>
                         </span>
                     </a>
                     <a onClick={() => setDarkMode(!darkMode)} className="cursor-pointer">
