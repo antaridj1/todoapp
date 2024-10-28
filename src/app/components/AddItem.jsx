@@ -19,7 +19,7 @@ export default function AddItem({onAdd}){
                     onChange={(e) => setAddItem(e.target.value)} 
                     value={addItem} 
                     placeholder="Add an activity" 
-                    className="block w-full py-5 ps-8 text-lg text-gray-900 rounded-full bg-[#eaeaea] dark:bg-[#0C0926] dark:text-white"
+                    className="block w-full py-5 ps-8 text-lg text-gray-900 rounded-full bg-[#eaeaea] dark:bg-[#0C0926] dark:text-white dark:placeholder-grey-700"
                 />
                 <button type="submit" className="text-white absolute end-1.5 bottom-1.5 p-4 bg-[#6C5FE5] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-bold rounded-full">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" className="size-6">
