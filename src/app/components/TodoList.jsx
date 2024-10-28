@@ -25,11 +25,11 @@ export default function TodoList({todo, onCheck, onDelete, onEdit}){
                                 defaultValue={todo.name}
                                 onChange={(e) => onEdit(todo.id, e.target.value)}
                                 onBlur={() => setIsEditing(false)}
-                                className={`w-full mx-3 text-md bg-white font-medium text-gray-600 focus:bg-transparent focus:border-none focus:outline-none dark:text-white dark:bg-[#5A577D] `} />
+                                className={`w-full py-4 mx-3 text-lg bg-white font-medium text-gray-600 focus:bg-transparent focus:border-none focus:outline-none dark:text-white dark:bg-[#5A577D] `} />
                         ) : (
                             <label 
                                 onClick={() => setIsEditing(true)} 
-                                className={`w-full mx-3 text-md font-medium 
+                                className={`w-full py-4 mx-3 text-lg font-medium 
                                     ${todo.isCompleted? 'text-gray-400 line-through dark:text-[#D5D0D0]' : 'text-gray-600 dark:text-white'}`}>
                                 {todo.name}
                             </label>
